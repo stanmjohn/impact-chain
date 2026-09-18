@@ -1,0 +1,83 @@
+{
+  "about": "Benchmarks for products that help people get public benefits. Every number here is a default, never a fact. Each entry lists the published points behind it, with source, link, year, and place, and says what it does not cover. Any chain file can override any entry by giving its own low, likely, and high.",
+  "benchmarks": [
+    {
+      "id": "added-enrollment-from-application-help",
+      "label": "Share of everyone offered help who enrolled and would not have enrolled anyway",
+      "unit": "share",
+      "low": 0.022,
+      "likely": 0.047,
+      "high": 0.118,
+      "how_set": "Low and high are the lowest and highest of the three points below. Likely is the middle one.",
+      "does_not_cover": "Anything but SNAP. Each figure is measured over everyone offered the help, not only the people who used it, so it is never multiplied by reach or uptake. Two very different groups, older adults in Pennsylvania reached by mail and online applicants in Los Angeles reached by text. A product that reaches people who are harder to enroll, or easier, will land outside this range.",
+      "points": [
+        {
+          "value": 0.118,
+          "what": "A letter plus phone help with the application. 17.6 percent enrolled within nine months against 5.8 percent of the comparison group.",
+          "source": "Finkelstein and Notowidigdo, Take-Up and Targeting, Quarterly Journal of Economics 2019, Table II",
+          "url": "https://economics.mit.edu/sites/default/files/2022-08/aaFinkelstein_Noto_QJE_August_2019%20%281%29.pdf",
+          "year": "Letters mailed in 2016, followed nine months",
+          "place": "Pennsylvania, adults 60 and over on Medicaid and not on SNAP",
+          "measured": "State enrollment records, lottery study, 10,629 offered and 10,630 in the comparison group"
+        },
+        {
+          "value": 0.047,
+          "what": "A letter and a reminder postcard with no phone help. 10.5 percent enrolled against 5.8 percent.",
+          "source": "Finkelstein and Notowidigdo, Take-Up and Targeting, Quarterly Journal of Economics 2019, Table II",
+          "url": "https://economics.mit.edu/sites/default/files/2022-08/aaFinkelstein_Noto_QJE_August_2019%20%281%29.pdf",
+          "year": "Letters mailed in 2016, followed nine months",
+          "place": "Pennsylvania, adults 60 and over on Medicaid and not on SNAP",
+          "measured": "State enrollment records, lottery study, 5,314 offered and 10,630 in the comparison group"
+        },
+        {
+          "value": 0.022,
+          "what": "A text or email telling online applicants they could call for their required interview at a time of their choosing. The gain in ever receiving SNAP, five months out.",
+          "source": "Giannella, Homonoff, Rino, and Somerville, working paper, April 2023",
+          "url": "https://harris.uchicago.edu/sites/default/files/homonoff_ppe_seminar_paper_5-3-23.pdf",
+          "year": "Applications from October 2020 to May 2021, followed five months",
+          "place": "Los Angeles County, California, applicants through one online application",
+          "measured": "County records, lottery study, 64,798 applications"
+        }
+      ]
+    },
+    {
+      "id": "snap-dollars-per-new-household-per-year",
+      "label": "SNAP dollars a newly enrolled household receives in a year",
+      "unit": "dollars per household per year",
+      "low": 1216,
+      "likely": 1385,
+      "high": 1751,
+      "how_set": "Each point is a printed average monthly benefit times twelve. Low and high are the lowest and highest of the three. Likely is the middle one.",
+      "does_not_cover": "Households with children, who receive far more. Anyone under 60. Any year but 2016, with no adjustment for inflation or for later changes to benefit levels. People a product newly brings in tend to receive less than people who enroll on their own, which is why the low end sits where it does. Benefits are money moved to a household from the federal government, not new wealth.",
+      "points": [
+        {
+          "value": 1216,
+          "what": "Enrollees who got a letter plus phone help. Printed as $101.32 a month.",
+          "source": "Finkelstein and Notowidigdo, Take-Up and Targeting, Quarterly Journal of Economics 2019, Table IV",
+          "url": "https://economics.mit.edu/sites/default/files/2022-08/aaFinkelstein_Noto_QJE_August_2019%20%281%29.pdf",
+          "year": "2016",
+          "place": "Pennsylvania, adults 60 and over",
+          "measured": "State benefit records, enrollees within nine months"
+        },
+        {
+          "value": 1385,
+          "what": "Enrollees who got a letter only. Printed as $115.38 a month.",
+          "source": "Finkelstein and Notowidigdo, Take-Up and Targeting, Quarterly Journal of Economics 2019, Table IV",
+          "url": "https://economics.mit.edu/sites/default/files/2022-08/aaFinkelstein_Noto_QJE_August_2019%20%281%29.pdf",
+          "year": "2016",
+          "place": "Pennsylvania, adults 60 and over",
+          "measured": "State benefit records, enrollees within nine months"
+        },
+        {
+          "value": 1751,
+          "what": "Enrollees in the comparison group, who enrolled with no outreach. Printed as $145.94 a month.",
+          "source": "Finkelstein and Notowidigdo, Take-Up and Targeting, Quarterly Journal of Economics 2019, Table IV",
+          "url": "https://economics.mit.edu/sites/default/files/2022-08/aaFinkelstein_Noto_QJE_August_2019%20%281%29.pdf",
+          "year": "2016",
+          "place": "Pennsylvania, adults 60 and over",
+          "measured": "State benefit records, enrollees within nine months"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+# Year Up, a year of training and internship for young adults.
+# A lottery study with seven years of wage records. Two things make it a good test.
+# Seats are limited, and the earnings gain was measured over everyone offered a seat.
+# Fein and Dastrup, Benefits that Last, OPRE Report 2022-77. Public domain.
+
+product: Year Up
+built for: young adults 18 to 24 who applied, were found eligible, and won a seat by lottery
+place: Eight offices in nine US cities
+years: Enrolled 2013 to 2014, followed for seven years
+outcome: higher earnings
+dollars: dollars as the report prints them. The report does not state a dollar year in the passages read
+seats offered: Year Up accepted close to one in six applicants during the study.
+
+[uptake] Took the seat and enrolled in training
+low: 96%
+likely: 96%
+high: 96%
+evidence: measured
+source: Fein and Dastrup 2022, executive summary
+url: https://acf.gov/sites/default/files/documents/opre/year%20up%20long-term%20impact%20report_apr2022.pdf
+
+[staying] Finished the program, as a share of those who enrolled
+low: 78.1%
+likely: 78.1%
+high: 78.1%
+evidence: measured
+source: Fein and Dastrup 2022, executive summary
+url: https://acf.gov/sites/default/files/documents/opre/year%20up%20long-term%20impact%20report_apr2022.pdf
+range: worked out by the author of this file. The report prints 75 percent of everyone offered a seat finishing and 96 percent enrolling.
+
+[income raised] Earnings added per person offered a seat
+per: measured group
+measured over: everyone
+compared with: 858 eligible applicants who lost the lottery and could not enroll. They earned $138,260 over the seven years, against $176,412.
+window: over the seven years after the lottery, the training year included
+measured at: quarterly wage records through the 27th quarter after the lottery
+repeats: recurring, and growing. The gap was $8,251 in year seven. In year one, the training year, the program group earned $5,778 less.
+low: 31,641
+likely: 38,152
+high: 44,663
+evidence: measured
+source: Fein and Dastrup 2022, Exhibit 2-1, Years 1-7
+url: https://acf.gov/sites/default/files/documents/opre/year%20up%20long-term%20impact%20report_apr2022.pdf
+range: the 90 percent confidence interval, worked out from the printed standard error of $3,958.
+
+[cost] Net cost to society per person offered a seat
+per: everyone
+low: 20,822
+likely: 23,135
+high: 25,449
+evidence: measured
+source: Fein and Dastrup 2022, Exhibit 5-2
+url: https://acf.gov/sites/default/files/documents/opre/year%20up%20long-term%20impact%20report_apr2022.pdf
+range: set by the author of this file at 10 percent either side. The report prints one figure.
+note: $27,158 for the program, plus $6,748 in other training the program group used, less $10,771 in other training the comparison group used. Employers paid 59 percent of the program cost.

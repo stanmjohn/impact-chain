@@ -1,0 +1,16 @@
+{
+  "name": "impact-chain",
+  "version": "0.1.0",
+  "description": "From 1,000 people a product was built for to what lands in a household, with a range at every link, the weak link named, and the line where measured numbers stop.",
+  "type": "module",
+  "bin": {
+    "impact-chain": "bin/impact-chain.mjs"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
