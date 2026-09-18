@@ -1,0 +1,74 @@
+# A letter plus phone help to apply for SNAP, Pennsylvania, 2016.
+# Every link was measured in one lottery study of 31,888 people.
+# Finkelstein and Notowidigdo, Take-Up and Targeting, Quarterly Journal of Economics, 2019.
+
+product: A letter plus phone help to apply for SNAP
+built for: Pennsylvanians 60 and over who were on Medicaid and not on SNAP
+place: Pennsylvania
+years: Letters mailed in 2016, followed for nine months, and for 23 months on whether enrollment held
+outcome: SNAP benefits
+dollars: 2016 dollars
+
+[reach] Called the number on the letter
+low: 29.4%
+likely: 30.1%
+high: 30.8%
+evidence: measured
+source: Finkelstein and Notowidigdo 2019, Table II, callers
+url: https://economics.mit.edu/sites/default/files/2022-08/aaFinkelstein_Noto_QJE_August_2019%20%281%29.pdf
+range: the 90 percent confidence interval, worked out by the author of this file from the printed rate and the 10,629 people mailed.
+
+[uptake] Callers who went on to apply
+low: 58.8%
+likely: 60.2%
+high: 61.6%
+evidence: measured
+source: Finkelstein and Notowidigdo 2019, Table II, SNAP applicants among callers
+url: https://economics.mit.edu/sites/default/files/2022-08/aaFinkelstein_Noto_QJE_August_2019%20%281%29.pdf
+range: the 90 percent confidence interval, worked out by the author of this file from the printed rate and about 3,200 callers.
+
+[effect] Enrolled in SNAP within nine months who would not have enrolled anyway
+measured over: everyone
+compared with: 10,630 people picked by lottery to get no letter. 5.8 percent of them enrolled, against 17.6 percent of the people mailed.
+low: 11.1%
+likely: 11.8%
+high: 12.5%
+evidence: measured
+source: Finkelstein and Notowidigdo 2019, Table II, SNAP enrollees
+url: https://economics.mit.edu/sites/default/files/2022-08/aaFinkelstein_Noto_QJE_August_2019%20%281%29.pdf
+range: the 90 percent confidence interval, worked out by the author of this file from the two printed rates and group sizes.
+note: About three in four applications were approved in every group.
+
+[income raised] SNAP benefits per newly enrolled household
+window: over the first twelve months on SNAP
+measured at: enrollment within nine months of the letter, benefit amounts from state records
+repeats: recurring monthly. Households this age are certified for 36 months, and about 90 percent of the enrollment effect was still there at 23 months.
+low: 947
+likely: 1,216
+high: 1,300
+evidence: measured
+source: Finkelstein and Notowidigdo 2019, Table IV and the cost discussion
+url: https://economics.mit.edu/sites/default/files/2022-08/aaFinkelstein_Noto_QJE_August_2019%20%281%29.pdf
+range: likely is the printed $101.32 a month for enrollees who got phone help, times twelve. High is the paper's round figure of about $1,300 a year. Low is worked out by the author of this file. If the 5.8 percent who enroll anyway draw the comparison group's $145.94, the added enrollees draw about $79 a month.
+note: Benefits are money moved to a household from the federal government, not new wealth. The people the letter brought in were less poor than people who enroll on their own, so they draw less.
+
+[cost] Letters and phone help, per person mailed
+per: everyone
+low: 5
+likely: 7
+high: 9
+evidence: measured
+source: Finkelstein and Notowidigdo 2019, the outreach group's own estimate of marginal cost
+url: https://economics.mit.edu/sites/default/files/2022-08/aaFinkelstein_Noto_QJE_August_2019%20%281%29.pdf
+range: set by the author of this file at two dollars either side. The paper prints about $7 and says fixed and marginal costs are hard to separate.
+
+[cost] State cost to process the added applications, per person mailed
+per: everyone
+counted in budget: no
+low: 21.6
+likely: 21.6
+high: 38.6
+evidence: measured
+source: Finkelstein and Notowidigdo 2019, citing Isaacs 2008 at about $134 per application, and the J-PAL summary of the study at about $240
+url: https://www.povertyactionlab.org/evaluation/impact-informational-mailings-snap-enrollment-united-states
+range: worked out by the author of this file. 16.1 more applications per 100 people mailed, times $134 for the low and likely and $240 for the high.

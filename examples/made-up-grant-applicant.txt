@@ -1,0 +1,56 @@
+# A made-up product, written the way an applicant writes before a grant.
+# No such product exists and every product figure below is invented.
+# The household gain benchmark it leans on is real and sourced in benchmarks/benefits.json.
+
+product: Pantry Text, a text-message SNAP screener (made up)
+built for: households who use food pantries in one county, look eligible for SNAP, and are not enrolled
+place: One US county
+years: The first grant year
+outcome: SNAP benefits
+dollars: Current dollars
+made up: yes
+
+[reach] Opened the text message
+low: 35%
+likely: 50%
+high: 65%
+evidence: assumed
+source: The applicant's guess from the pantry network's past text campaigns (made up)
+
+[uptake] Started the screener
+low: 15%
+likely: 25%
+high: 40%
+evidence: assumed
+source: The applicant's guess (made up)
+
+[staying] Finished the screener and sent in an application
+low: 40%
+likely: 55%
+high: 70%
+evidence: assumed
+source: The applicant's guess (made up)
+
+[effect] Approved for SNAP who would not have enrolled anyway, among those who sent in an application
+measured over: stayed
+compared with: nothing yet. The grant would text a second group of households three months later and compare enrollment across the two.
+low: 30%
+likely: 45%
+high: 60%
+evidence: assumed
+source: The applicant's guess (made up)
+note: Multiplied through, this chain changes about 3 percent of everyone texted. Published lottery studies of application help put that figure between 2.2 and 11.8 percent of everyone offered, so the guess sits at the cautious end.
+
+[income raised] SNAP benefits per newly enrolled household
+benchmark: snap-dollars-per-new-household-per-year
+window: over the first twelve months on SNAP
+measured at: benefit amounts in the benchmark study, state records
+repeats: recurring monthly, until the household has to recertify
+
+[cost] Building and running the product, per household texted
+per: everyone
+low: 4
+likely: 6
+high: 10
+evidence: assumed
+source: The applicant's draft budget (made up)

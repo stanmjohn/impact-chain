@@ -1,0 +1,47 @@
+# IRS Direct File, the 2024 pilot. A free federal tax filing tool used by the filer.
+# The cleanest public funnel of any product found, and no measured effect at all.
+# So the chain stops early, and the page says which link an evaluation has to buy.
+
+product: IRS Direct File, 2024 pilot
+built for: taxpayers in the 12 pilot states whose tax situation the tool could handle, about 19 million by the IRS's own estimate
+place: Twelve US states
+years: February to April 2024
+dollars: 2024 dollars
+
+[reach] Started the eligibility checker
+low: 15%
+likely: 17.4%
+high: 17.4%
+evidence: measured
+source: IRS release IR-2024-122 and the Direct File after action report, Publication 5969
+url: https://www.irs.gov/pub/irs-pdf/p5969.pdf
+range: worked out by the author of this file. More than 3.3 million started the checker, against 19 million eligible. Some who started lived outside the pilot states, so the low end is marked down.
+
+[uptake] Logged in to Direct File, as a share of those who started the checker
+low: 12.8%
+likely: 12.8%
+high: 12.8%
+evidence: measured
+source: IRS release IR-2024-122
+url: https://content.govdelivery.com/accounts/USIRS/bulletins/398eb5a
+range: worked out by the author of this file. 423,450 logged in, against 3.3 million who started the checker.
+
+[staying] Filed a return the IRS accepted, as a share of those who logged in
+low: 33.3%
+likely: 33.3%
+high: 33.3%
+evidence: measured
+source: Government Accountability Office, GAO-25-106933
+url: https://www.gao.gov/products/gao-25-106933
+range: worked out by the author of this file. 140,803 accepted returns, against 423,450 who logged in.
+note: Treasury estimated users saved $5.6 million in filing fees. Nearly half of users said they paid for tax preparation the year before. No study says how many of the rest would have filed free some other way, so this file leaves household gain out.
+
+[cost] IRS spending on the pilot, per eligible taxpayer
+per: everyone
+low: 0.13
+likely: 1.29
+high: 1.29
+evidence: measured
+source: IRS release IR-2024-122
+url: https://content.govdelivery.com/accounts/USIRS/bulletins/398eb5a
+range: worked out by the author of this file. $24.6 million in all spending through the pilot, against 19 million eligible, for the likely and high. $2.4 million in operating cost alone for the low.
