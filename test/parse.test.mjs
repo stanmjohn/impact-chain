@@ -52,3 +52,12 @@ test("organization links need a way to get to people", () => {
   const bad = good.replace("[reach]", "[org reach] Cities that heard of it\nlow: 10%\nlikely: 20%\nhigh: 30%\nevidence: assumed\nsource: guess\n[reach]");
   assert.throws(() => parseChain(bad), /no \[people per organization\] block/);
 });
+
+test("a kept share needs a household and an income raised block, and may be modeled", () => {
+  const kept = "[kept share] Kept\nlow: 70%\nlikely: 74%\nhigh: 78%\nevidence: modeled\nsource: a model\nhousehold: one adult, age 24, in PA\n";
+  const c = parseChain(good + kept);
+  assert.equal(c.blocks.at(-1).evidence, "modeled");
+  assert.throws(() => parseChain(good + kept.replace("household: one adult, age 24, in PA\n", "")), /needs a "household:" line/);
+  assert.throws(() => parseChain(good.replace(/\[income raised\][\s\S]*?(?=\[cost\])/, "") + kept), /no \[income raised\] block/);
+  assert.throws(() => parseChain(good.replace("evidence: assumed\nsource: guess\n[uptake]", "evidence: modeled\nsource: guess\n[uptake]")), /needs "evidence: measured" or "evidence: assumed"/);
+});

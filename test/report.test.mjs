@@ -75,3 +75,12 @@ test("the refusals ship on every page", () => {
   assert.ok(assumed.includes("## What this page refuses to do"));
   assert.ok(assumed.includes("It never puts dollars on a result nobody measured in dollars."));
 });
+
+test("with a kept share the read counts kept income and prints earned beside it", () => {
+  const md = page(good + "[kept share] Kept\nlow: 50%\nlikely: 50%\nhigh: 50%\nevidence: modeled\nsource: PolicyEngine US model, version 1.0.0, 2025 rules, priced on 2026-09-25\nhousehold: one adult, age 24, in PA\nnote: A raise of $1,000 leaves $500.\n");
+  assert.ok(md.includes("in a household's hands after taxes and lost benefits"));
+  assert.ok(md.includes("**Earned and kept are different numbers.**"));
+  assert.ok(md.includes("## What the household keeps"));
+  assert.ok(md.includes("applying 2025 rules to one named household"));
+  assert.ok(md.includes("Health coverage and its subsidies are shown apart and never added in."));
+});

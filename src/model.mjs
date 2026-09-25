@@ -84,6 +84,7 @@ export function walk(chain, valueOf) {
 
   let income = 0;
   let costsCut = 0;
+  const keptShare = pick(blocks, "kept share");
   for (const b of blocks) {
     if (!GAIN_KINDS.includes(b.kind)) continue;
     const amount = b.per === "changed household" ? changed * valueOf(b) : counts[b.over] * valueOf(b);
@@ -97,14 +98,15 @@ export function walk(chain, valueOf) {
     cost += (b.per === "organization" ? counts.organizations : counts[b.per]) * valueOf(b);
   }
 
-  const gain = income + costsCut;
+  const incomeKept = keptShare ? income * valueOf(keptShare) : income;
+  const gain = incomeKept + costsCut;
   const end = ending(chain);
   let final = null;
   if (end === "gain") final = cost > 0 ? Math.max(0, gain) / cost : 0;
   if (end === "outcome") final = changed > 0 ? cost / changed : Infinity;
   const nothingChanged = end === "gain" ? gain <= 0 : end === "outcome" ? !(changed > 0) : false;
 
-  return { counts, changed, income, costsCut, gain, cost, final, nothingChanged };
+  return { counts, changed, income, incomeKept, costsCut, gain, cost, final, nothingChanged };
 }
 
 /** Blocks that vary from run to run. */
@@ -133,7 +135,7 @@ function summarize(values) {
 
 export function run(chain, { draws = DEFAULT_DRAWS, seed = DEFAULT_SEED } = {}) {
   const next = rng(seed);
-  const series = { reached: [], started: [], stayed: [], everyone: [], changed: [], final: [], gain: [], cost: [], income: [], costsCut: [], activeOrganizations: [] };
+  const series = { reached: [], started: [], stayed: [], everyone: [], changed: [], final: [], gain: [], cost: [], income: [], incomeKept: [], costsCut: [], activeOrganizations: [] };
   let nothing = 0;
   for (let i = 0; i < draws; i++) {
     const values = new Map();
@@ -146,6 +148,7 @@ export function run(chain, { draws = DEFAULT_DRAWS, seed = DEFAULT_SEED } = {}) 
     series.gain.push(w.gain);
     series.cost.push(w.cost);
     series.income.push(w.income);
+    series.incomeKept.push(w.incomeKept);
     series.costsCut.push(w.costsCut);
   }
   const end = ending(chain);

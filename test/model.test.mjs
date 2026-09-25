@@ -92,3 +92,13 @@ test("run is deterministic, and refuses when most runs change nothing", () => {
   assert.equal(a.state, "refused");
   assert.ok(a.nothingShare >= 0.5);
 });
+
+test("a kept share scales income raised and leaves costs cut alone", () => {
+  const c = parseChain(head + block("effect", "Effect", "10%", "10%", "10%", effectExtra("everyone")) + block("income raised", "Wages", "1000", "1000", "1000", gainExtra) + block("costs cut", "Fees avoided", "200", "200", "200", gainExtra) + block("kept share", "Kept", "50%", "50%", "50%", "household: one adult\n") + block("cost", "Cost", "10", "10", "10"));
+  const w = walk(c, likely);
+  // 100 changed x $1,000 = $100,000 earned, half kept, plus $20,000 in fees avoided, over $10,000.
+  assert.equal(Math.round(w.income), 100000);
+  assert.equal(Math.round(w.incomeKept), 50000);
+  assert.equal(Math.round(w.gain), 70000);
+  assert.equal(Math.round(w.final), 7);
+});
