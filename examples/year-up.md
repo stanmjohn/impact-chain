@@ -9,11 +9,15 @@ Built for young adults 18 to 24 who applied, were found eligible, and won a seat
 - **From a benchmark.** None.
 - **Not in the file.** Reach. The effect is inside the gain figure, which was measured in dollars against a comparison group.
 
-**Every link in this chain was measured.** An evaluation budget here buys a longer window or a second place, not a missing link.
+**Measured numbers stop at kept share ("Share of the raise the household keeps after taxes and lost cash benefits").** Every link from there on is a guess or a benchmark, and the page marks each one.
 
 ## The read
 
-Every dollar spent puts about **$1.65** in a household's hands, over the seven years after the lottery, the training year included, in the middle run. The middle 80 percent of 20,000 runs fall between **$1.48** and **$1.83**.
+Every dollar spent puts about **$1.22** in a household's hands after taxes and lost benefits, over the seven years after the lottery, the training year included, in the middle run. The middle 80 percent of 20,000 runs fall between **$1.09** and **$1.35**.
+
+**Earned and kept are different numbers.** The households earned $38,200,000 more in all and kept $28,200,000 of it, 73.9%, once taxes rose and cash benefits fell. The page counts what they kept. One adult, age 24, in PA, earning $27,338 before the raise.
+
+**This figure rests on 1 number nobody has measured for this product:** kept share ("Share of the raise the household keeps after taxes and lost cash benefits").
 
 ## The chain
 
@@ -23,6 +27,7 @@ Every dollar spent puts about **$1.65** in a household's hands, over the seven y
 | Uptake | Took the seat and enrolled in training | 96% (96% to 96%) | 960 (960 to 960), shown, not multiplied in | measured |
 | Staying | Finished the program, as a share of those who enrolled | 78.1% (78.1% to 78.1%) | 750 (750 to 750), shown, not multiplied in | measured |
 | Household gain, income raised | Earnings added per person offered a seat, per person, measured over everyone at the start | $38,200 ($31,600 to $44,700) | $38,200,000 in all ($34,600,000 to $41,800,000) | measured |
+| Share of the raise the household keeps | Share of the raise the household keeps after taxes and lost cash benefits | 73.9% (73.9% to 73.9%) | $28,200,000 kept ($25,500,000 to $30,900,000) | modeled |
 | Cost | All cost lines | | $23,100,000 in all ($21,900,000 to $24,400,000) | |
 
 **Shown, not multiplied in.** Uptake and staying. The gain in this file was measured over everyone at the start, so it already counts the people who never got that far. Multiplying by those links again would subtract them twice.
@@ -35,8 +40,14 @@ Each row holds every other number at its likely value and moves one number from 
 
 | Rank | Number | At its low | At its high | Evidence |
 |---|---|---|---|---|
-| 1 | Earnings added per person offered a seat ($31,600 to $44,700) | $1.37 | $1.93 | measured |
-| 2 | Net cost to society per person offered a seat ($20,800 to $25,400) | $1.83 | $1.50 | measured |
+| 1 | Earnings added per person offered a seat ($31,600 to $44,700) | $1.01 | $1.43 | measured |
+| 2 | Net cost to society per person offered a seat ($20,800 to $25,400) | $1.35 | $1.11 | measured |
+
+## What the household keeps
+
+A raise of $8,251 a year leaves $6,096 in cash after federal income tax after credits $1,159 to $2,142, state income tax $839 to $1,093, payroll tax, employee side $2,110 to $2,747, SNAP $282 to $0. Cash kept goes from $23,511 to $29,607. Shown apart and not counted, ACA premium subsidy $3,990 to $3,105. The model applies the rules to this one household and says nothing about what it filed for.
+
+Kept counts cash and near-cash only, federal and state income tax after credits, the employee side of payroll tax, SNAP, TANF, and SSI. Health coverage and its subsidies are shown apart and never added in. The figure comes from an open tax and benefit model applying 2025 rules to one named household, and the page rebuilds from the number written in the file, not from a live call.
 
 ## The time window
 
@@ -51,6 +62,7 @@ The page counts only the window the file states and stretches nothing past it. L
 | Uptake | Took the seat and enrolled in training | 96% | 96% | 96% | measured | [Fein and Dastrup 2022, executive summary](https://acf.gov/sites/default/files/documents/opre/year%20up%20long-term%20impact%20report_apr2022.pdf) |  |
 | Staying | Finished the program, as a share of those who enrolled | 78.1% | 78.1% | 78.1% | measured | [Fein and Dastrup 2022, executive summary](https://acf.gov/sites/default/files/documents/opre/year%20up%20long-term%20impact%20report_apr2022.pdf) | Range: worked out by the author of this file. The report prints 75 percent of everyone offered a seat finishing and 96 percent enrolling. |
 | Household gain, income raised | Earnings added per person offered a seat | $31,600 | $38,200 | $44,700 | measured | [Fein and Dastrup 2022, Exhibit 2-1, Years 1-7](https://acf.gov/sites/default/files/documents/opre/year%20up%20long-term%20impact%20report_apr2022.pdf) | Compared with: 858 eligible applicants who lost the lottery and could not enroll. They earned $138,260 over the seven years, against $176,412.. Range: the 90 percent confidence interval, worked out from the printed standard error of $3,958. |
+| Share of the raise the household keeps | Share of the raise the household keeps after taxes and lost cash benefits | 73.9% | 73.9% | 73.9% | modeled | [PolicyEngine US model, version 1.764.6, 2025 rules, priced on 2026-09-25](https://policyengine.org/us) | Household: one adult, age 24, in PA, earning $27,338 before the raise. |
 | Cost, per person at the start | Net cost to society per person offered a seat | $20,800 | $23,100 | $25,400 | measured | [Fein and Dastrup 2022, Exhibit 5-2](https://acf.gov/sites/default/files/documents/opre/year%20up%20long-term%20impact%20report_apr2022.pdf) | Range: set by the author of this file at 10 percent either side. The report prints one figure. $27,158 for the program, plus $6,748 in other training the program group used, less $10,771 in other training the comparison group used. Employers paid 59 percent of the program cost. |
 
 ## How the range was made

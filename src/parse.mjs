@@ -5,7 +5,7 @@
 //   low: 20%                         numbers may carry $ , and %
 //   likely: 30%
 //   high: 40%
-//   evidence: assumed                measured, assumed, or benchmark
+//   evidence: assumed                measured, assumed, benchmark, or modeled
 //   source: Our own guess
 //
 // Every error names the line it came from. Three refusals live here because
@@ -16,16 +16,16 @@
 export const LINKS = ["reach", "uptake", "staying"];
 export const ORG_LINKS = ["org reach", "org uptake", "org staying"];
 export const GAIN_KINDS = ["income raised", "costs cut"];
-export const BLOCK_KINDS = [...ORG_LINKS, "people per organization", ...LINKS, "effect", ...GAIN_KINDS, "cost"];
+export const BLOCK_KINDS = [...ORG_LINKS, "people per organization", ...LINKS, "effect", ...GAIN_KINDS, "kept share", "cost"];
 
 // Groups a figure can be measured over or a cost charged to, in chain order.
 export const GROUPS = ["everyone", "reached", "started", "stayed"];
 const GROUP_NEEDS = { everyone: [], reached: ["reach"], started: ["reach", "uptake"], stayed: ["reach", "uptake", "staying"] };
 
-const HEADER_KEYS = ["product", "built for", "place", "years", "outcome", "dollars", "seats offered", "made up"];
+const HEADER_KEYS = ["product", "built for", "place", "years", "outcome", "dollars", "seats offered", "made up", "household state", "household ages", "household income", "household gain per year", "household rules year"];
 const BLOCK_KEYS = [
   "low", "likely", "high", "benchmark", "evidence", "source", "url", "note", "range",
-  "measured over", "compared with", "per", "window", "measured at", "repeats", "counted in budget",
+  "measured over", "compared with", "per", "window", "measured at", "repeats", "counted in budget", "household",
 ];
 
 /** "$4,000" -> 4000, "12%" -> 0.12, "-2.1%" -> -0.021 */
@@ -96,7 +96,7 @@ function validate(header, blocks) {
   }
   const of = (kind) => blocks.filter((b) => b.kind === kind);
   const has = (kind) => of(kind).length > 0;
-  for (const kind of [...ORG_LINKS, "people per organization", ...LINKS, "effect"]) {
+  for (const kind of [...ORG_LINKS, "people per organization", ...LINKS, "effect", "kept share"]) {
     if (of(kind).length > 1) throw new Error(`Only one [${kind}] block is allowed.`);
   }
   if (!has("cost")) throw new Error(`The file needs at least one [cost] block.`);
@@ -119,7 +119,8 @@ function validate(header, blocks) {
       }
       if (!(b.low <= b.likely && b.likely <= b.high)) throw new Error(`Line ${b.line}: in "${b.label}", low, likely, and high must run in that order.`);
       if (!b.source) throw new Error(`Line ${b.line}: "${b.label}" has no source. Every number carries one, even if the source is "our own guess".`);
-      if (!["measured", "assumed"].includes(b.evidence)) {
+      const allowed = b.kind === "kept share" ? ["measured", "assumed", "modeled"] : ["measured", "assumed"];
+      if (!allowed.includes(b.evidence)) {
         throw new Error(`Line ${b.line}: "${b.label}" needs "evidence: measured" or "evidence: assumed". The page draws a line where measured numbers stop, so every number has to say which side it is on.`);
       }
     } else {
@@ -146,6 +147,11 @@ function validate(header, blocks) {
       } else {
         throw new Error(`Line ${b.line}: "per:" on a gain block must be "changed household" or "measured group".`);
       }
+    }
+
+    if (b.kind === "kept share") {
+      if (!has("income raised")) throw new Error(`Line ${b.line}: "${b.label}" is a kept share, and the file has no [income raised] block for it to apply to.`);
+      if (!b.household) throw new Error(`Line ${b.line}: "${b.label}" needs a "household:" line naming who was priced. A kept share with no household is a number with no one behind it.`);
     }
 
     if (b.kind === "cost") {

@@ -17,10 +17,11 @@ const KIND_NAMES = {
   "effect": "Effect",
   "income raised": "Household gain, income raised",
   "costs cut": "Household gain, costs cut",
+  "kept share": "Share of the raise the household keeps",
   "cost": "Cost",
 };
 const COUNT_NAMES = { reach: "reached", uptake: "started", staying: "stayed" };
-const CHAIN_ORDER = [...ORG_LINKS, "people per organization", ...LINKS, "effect", ...GAIN_KINDS];
+const CHAIN_ORDER = [...ORG_LINKS, "people per organization", ...LINKS, "effect", ...GAIN_KINDS, "kept share"];
 
 /** Dollars at three significant figures. */
 export function money(n) {
@@ -69,7 +70,7 @@ function sourceCell(b) {
   return b.url ? `[${b.source}](${b.url})` : b.source;
 }
 
-const SHORT = { "income raised": "income raised", "costs cut": "costs cut" };
+const SHORT = { "income raised": "income raised", "costs cut": "costs cut", "kept share": "kept share" };
 const short = (kind) => SHORT[kind] ?? KIND_NAMES[kind].toLowerCase();
 const name = (b) => `${short(b.kind)} ("${b.label}")`;
 
@@ -80,6 +81,7 @@ export function report(chain, result) {
   const of = (kind) => blocks.filter((b) => b.kind === kind);
   const links = blocks.filter((b) => b.kind !== "cost").sort((a, b) => CHAIN_ORDER.indexOf(a.kind) - CHAIN_ORDER.indexOf(b.kind));
   const gains = blocks.filter((b) => GAIN_KINDS.includes(b.kind));
+  const keptShare = of("kept share")[0];
   const effect = of("effect")[0];
   const orgStep = of("people per organization")[0];
   const shown = new Set(result.shownOnly);
@@ -135,7 +137,12 @@ export function report(chain, result) {
   } else if (result.state === "refused") {
     push(`**No estimate.** In ${pct(result.nothingShare)} of ${result.draws.toLocaleString("en-US")} runs the product changed nothing beyond what happens without it. A figure printed on top of that would be a guess with a dollar sign.`);
   } else if (result.end === "gain") {
-    push(`Every dollar spent puts about **${money(result.final.p50)}** in a household's hands, ${window}, in the middle run. The middle 80 percent of ${result.draws.toLocaleString("en-US")} runs fall between **${money(result.final.p10)}** and **${money(result.final.p90)}**.`);
+    push(`Every dollar spent puts about **${money(result.final.p50)}** in a household's hands${keptShare ? " after taxes and lost benefits" : ""}, ${window}, in the middle run. The middle 80 percent of ${result.draws.toLocaleString("en-US")} runs fall between **${money(result.final.p10)}** and **${money(result.final.p90)}**.`);
+    if (keptShare) {
+      const earned = result.stats.income;
+      const kept = result.stats.incomeKept;
+      push("", `**Earned and kept are different numbers.** The households earned ${money(earned.p50)} more in all and kept ${money(kept.p50)} of it, ${share(keptShare.likely)}, once taxes rose and cash benefits fell. The page counts what they kept. ${keptShare.household.charAt(0).toUpperCase() + keptShare.household.slice(1)}.`);
+    }
     if (changedStat) push("", `Of ${startLine}, about **${count(changedStat.p50)}** end up with ${header.outcome ?? "a result"} they would not have had anyway, ${count(changedStat.p10)} to ${count(changedStat.p90)} across the middle runs.`);
   } else {
     const high = result.state === "open-ended" ? `**The high end has no finite answer**, because in ${pct(result.nothingShare)} of runs nothing changed.` : `The middle 80 percent of ${result.draws.toLocaleString("en-US")} runs fall between **${money(result.final.p10)}** and **${money(result.final.p90)}**.`;
@@ -180,6 +187,10 @@ export function report(chain, result) {
     const s = result.stats[b.kind === "income raised" ? "income" : "costsCut"];
     push(`| ${KIND_NAMES[b.kind]} | ${b.label}, ${b.per === "changed household" ? "per changed household" : "per person, measured over " + (b.over === "everyone" ? "everyone at the start" : "everyone who " + b.over)} | ${money(b.likely)} (${money(b.low)} to ${money(b.high)}) | ${money(s.p50)} in all (${money(s.p10)} to ${money(s.p90)}) | ${b.evidence} |`);
   }
+  if (keptShare) {
+    const s = result.stats.incomeKept;
+    push(`| ${KIND_NAMES["kept share"]} | ${keptShare.label} | ${share(keptShare.likely)} (${share(keptShare.low)} to ${share(keptShare.high)}) | ${money(s.p50)} kept (${money(s.p10)} to ${money(s.p90)}) | ${keptShare.evidence} |`);
+  }
   const costStat = result.stats.cost;
   push(`| Cost | All cost lines | | ${money(costStat.p50)} in all (${money(costStat.p10)} to ${money(costStat.p90)}) | |`);
   push("");
@@ -213,6 +224,13 @@ export function report(chain, result) {
     push("");
   }
 
+  // What the household keeps
+  if (keptShare) {
+    push(`## What the household keeps`, "");
+    push(`${keptShare.note ?? ""}`, "");
+    push(`Kept counts cash and near-cash only, federal and state income tax after credits, the employee side of payroll tax, SNAP, TANF, and SSI. Health coverage and its subsidies are shown apart and never added in. The figure comes from an open tax and benefit model applying ${keptShare.source.match(/(\d{4}) rules/)?.[1] ?? "current"} rules to one named household, and the page rebuilds from the number written in the file, not from a live call.`, "");
+  }
+
   // Time window
   if (gains.length) {
     push(`## The time window`, "");
@@ -230,8 +248,9 @@ export function report(chain, result) {
     const kind = KIND_NAMES[b.kind] + (b.kind === "cost" ? `, per ${b.per === "everyone" ? "person at the start" : b.per === "organization" ? "organization" : "person who " + b.per}` : "") + (b.kind === "cost" && !b.countedInBudget ? ", outside the budget" : "");
     const note = [
       b.comparedWith ? `Compared with: ${b.comparedWith}.` : "",
+      b.household ? `Household: ${b.household}.` : "",
       b.range ? `Range: ${b.range}` : "",
-      b.note ?? "",
+      b.kind === "kept share" ? "" : (b.note ?? ""),
     ].filter(Boolean).join(" ");
     push(`| ${kind} | ${b.label} | ${value(b, b.low)} | ${value(b, b.likely)} | ${value(b, b.high)} | ${b.evidence} | ${sourceCell(b)} | ${note} |`);
   }

@@ -10,6 +10,12 @@ years: Enrolled 2013 to 2014, followed for seven years
 outcome: higher earnings
 dollars: dollars as the report prints them. The report does not state a dollar year in the passages read
 seats offered: Year Up accepted close to one in six applicants during the study.
+household state: PA
+household ages: 24
+household income: 27,338
+household gain per year: 8,251
+household rules year: 2025
+# The household priced below is one adult of 24, the middle of the study's 18 to 24 range, in Pennsylvania, at the comparison group's year-seven earnings of $27,338 and the program group's $35,589. The study ran in nine cities and the report does not name a home state, so the state is the file author's pick and the note says so.
 
 [uptake] Took the seat and enrolled in training
 low: 96%
@@ -53,3 +59,13 @@ source: Fein and Dastrup 2022, Exhibit 5-2
 url: https://acf.gov/sites/default/files/documents/opre/year%20up%20long-term%20impact%20report_apr2022.pdf
 range: set by the author of this file at 10 percent either side. The report prints one figure.
 note: $27,158 for the program, plus $6,748 in other training the program group used, less $10,771 in other training the comparison group used. Employers paid 59 percent of the program cost.
+
+[kept share] Share of the raise the household keeps after taxes and lost cash benefits
+low: 73.9%
+likely: 73.9%
+high: 73.9%
+evidence: modeled
+source: PolicyEngine US model, version 1.764.6, 2025 rules, priced on 2026-09-25
+url: https://policyengine.org/us
+household: one adult, age 24, in PA, earning $27,338 before the raise
+note: A raise of $8,251 a year leaves $6,096 in cash after federal income tax after credits $1,159 to $2,142, state income tax $839 to $1,093, payroll tax, employee side $2,110 to $2,747, SNAP $282 to $0. Cash kept goes from $23,511 to $29,607. Shown apart and not counted, ACA premium subsidy $3,990 to $3,105. The model applies the rules to this one household and says nothing about what it filed for.
