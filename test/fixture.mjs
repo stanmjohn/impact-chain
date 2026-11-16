@@ -1,7 +1,7 @@
 // One well-formed chain file that the tests bend into bad ones.
 
 export const good = `
-product: Example
+program: Example
 built for: people who look eligible
 [reach] Opened the message
 low: 40%

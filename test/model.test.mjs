@@ -6,7 +6,7 @@ import { parseChain } from "../src/parse.mjs";
 import { walk, run, shownOnly, ending, ranking } from "../src/model.mjs";
 
 const block = (kind, label, l, m, h, extra = "") => `[${kind}] ${label}\n${extra}low: ${l}\nlikely: ${m}\nhigh: ${h}\nevidence: measured\nsource: test\n`;
-const head = `product: Example\nbuilt for: people\n`;
+const head = `program: Example\nbuilt for: people\n`;
 const gainExtra = `window: one year\nmeasured at: month twelve\nrepeats: recurring\n`;
 const effectExtra = (over) => `measured over: ${over}\ncompared with: a lottery group\n`;
 const likely = (b) => b.likely;

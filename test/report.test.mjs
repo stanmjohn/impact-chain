@@ -25,13 +25,13 @@ const assumed = page(good);
 
 test("the page opens on the measurement plan", () => {
   assert.ok(assumed.indexOf("## The measurement plan") < assumed.indexOf("## The read"));
-  assert.ok(assumed.includes("**No link in this file has been measured yet.**"));
+  assert.ok(assumed.includes("**No link in this file has been measured or counted yet.**"));
   assert.ok(assumed.includes("**What the evaluation budget buys.**"));
 });
 
 test("the final figure never prints without its range, its window, or its soft spots", () => {
   assert.match(assumed, /Every dollar spent puts about \*\*\$[\d.,]+\*\* in a household's hands, over the first twelve months, in the middle run\. The middle 80 percent/);
-  assert.ok(assumed.includes("**This figure rests on 4 numbers nobody has measured for this product:**"));
+  assert.ok(assumed.includes("**This figure rests on 4 numbers nobody has measured for this program.**"));
 });
 
 test("the time window section ships with every household gain", () => {

@@ -1,7 +1,7 @@
 {
   "name": "impact-chain",
-  "version": "0.2.0",
-  "description": "From 1,000 people a product was built for to what lands in a household, with a range at every link, the weak link named, and the line where measured numbers stop.",
+  "version": "0.3.0",
+  "description": "Tracks a program from community reach to household gain, with a range or a count at every step. Shows where people leave, which step falls furthest below its published benchmark, and where measured numbers stop.",
   "type": "module",
   "bin": {
     "impact-chain": "bin/impact-chain.mjs"

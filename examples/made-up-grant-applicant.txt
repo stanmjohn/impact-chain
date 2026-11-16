@@ -1,14 +1,15 @@
-# A made-up product, written the way an applicant writes before a grant.
-# No such product exists and every product figure below is invented.
-# The household gain benchmark it leans on is real and sourced in benchmarks/benefits.json.
+# PLACEHOLDER. A made-up program, written the way an applicant writes before a grant.
+# No such program exists and every program figure below is invented.
+# The benchmarks it leans on are real and sourced in benchmarks/benefits.json.
 
-product: Pantry Text, a text-message SNAP screener (made up)
+program: Pantry Text, a text-message SNAP screener (made up)
 built for: households who use food pantries in one county, look eligible for SNAP, and are not enrolled
 place: One US county
 years: The first grant year
 outcome: SNAP benefits
 dollars: Current dollars
 made up: yes
+replace with: A real file would use the pantry network's own text logs for reach, screener logs for uptake and staying, and a group texted three months later for the effect.
 
 [reach] Opened the text message
 low: 35%
@@ -47,7 +48,7 @@ window: over the first twelve months on SNAP
 measured at: benefit amounts in the benchmark study, state records
 repeats: recurring monthly, until the household has to recertify
 
-[cost] Building and running the product, per household texted
+[cost] Building and running the program, per household texted
 per: everyone
 low: 4
 likely: 6

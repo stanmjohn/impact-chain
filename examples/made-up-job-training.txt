@@ -1,0 +1,67 @@
+# PLACEHOLDER. A made-up training program with seats given by lottery. Every program figure below is invented.
+# Its earnings gain is a guess over everyone offered a seat, so the steps before it are shown and not multiplied in.
+# The household priced below is made up and chosen by the author of this file, one adult of 30 in Pennsylvania.
+
+program: Skills to Work, a sixteen-week training program with a paid internship (made up)
+built for: adults 18 to 30 who applied, were found eligible, and won a seat by lottery
+place: One US metro area
+years: Enrolled in one year, followed for three years
+outcome: higher earnings
+dollars: Current dollars
+made up: yes
+replace with: A real file would use the program's own enrollment and completion records, and state wage records for applicants who won and lost the lottery.
+seats offered: The program has one seat for every four eligible applicants (made up).
+household state: PA
+household ages: 30
+household income: 24,000
+household gain per year: 3,000
+household rules year: 2026
+
+[uptake] Took the seat and started training
+check against: none
+low: 85%
+likely: 90%
+high: 95%
+evidence: assumed
+source: The program's guess (made up)
+note: The repo's uptake benchmark comes from benefits outreach, not from a training program with seats given by lottery, so the file sets none.
+
+[staying] Finished the training, as a share of those who started
+check against: none
+low: 65%
+likely: 75%
+high: 85%
+evidence: assumed
+source: The program's guess (made up)
+note: The repo's staying benchmark covers finishing one application or one return, not sixteen weeks of training, so the file sets none.
+
+[income raised] Earnings added per person offered a seat
+per: measured group
+measured over: everyone
+compared with: applicants who lost the lottery for a seat, a group the program would follow in state wage records (made up)
+window: over the three years after the lottery, the training months included
+measured at: state wage records three years after the lottery, planned
+repeats: recurring. Earnings dip in the training months and rise after.
+low: 3,000
+likely: 9,000
+high: 14,000
+evidence: assumed
+source: The program's guess (made up)
+
+[cost] Training, stipends, and internship support, per person offered a seat
+per: everyone
+low: 6,000
+likely: 7,500
+high: 9,500
+evidence: assumed
+source: The program's draft budget (made up)
+
+[kept share] Share of the raise the household keeps after taxes and lost cash benefits
+low: 79.2%
+likely: 79.2%
+high: 79.2%
+evidence: modeled
+source: PolicyEngine US model, version 2.2.1, 2026 rules, priced on 2026-11-15
+url: https://policyengine.org/us
+household: one adult, age 30, in PA, earning $24,000 before the raise, a household chosen by the author of this file
+note: A raise of $3,000 a year leaves $2,376 in cash after federal income tax after credits $790 to $1,090, state income tax $737 to $829, payroll tax, employee side $1,853 to $2,084. Cash kept goes from $20,620 to $22,997. Shown apart and not counted, ACA premium subsidy $5,280 to $4,903. The model applies the rules to this one household and says nothing about what it filed for.

@@ -52,14 +52,14 @@ export function household({ state, ages, income, year }) {
 }
 
 async function post(path, body) {
-  const res = await fetch(`${API}${path}`, { method: "POST", headers: { "Content-Type": "application/json", "User-Agent": "impact-chain/0.2 (open source)" }, body: JSON.stringify(body) });
+  const res = await fetch(`${API}${path}`, { method: "POST", headers: { "Content-Type": "application/json", "User-Agent": "impact-chain/0.3 (open source)" }, body: JSON.stringify(body) });
   const data = await res.json();
   if (!res.ok || data.status !== "ok") throw new Error(`PolicyEngine: ${data.message ?? res.status}`);
   return data.result;
 }
 
 async function version() {
-  const res = await fetch(`${API}/metadata`, { headers: { "User-Agent": "impact-chain/0.2 (open source)" } });
+  const res = await fetch(`${API}/metadata`, { headers: { "User-Agent": "impact-chain/0.3 (open source)" } });
   return (await res.json()).result?.version ?? "unknown";
 }
 
@@ -100,7 +100,7 @@ export function block(p, pricedOn) {
     `evidence: modeled`,
     `source: PolicyEngine US model, version ${p.modelVersion}, ${p.year} rules, priced on ${pricedOn}`,
     `url: https://policyengine.org/us`,
-    `household: ${p.ages.length === 1 ? "one adult" : p.ages.length + " people"}, ${p.ages.length === 1 ? "age" : "ages"} ${p.ages.join(" and ")}, in ${p.state}, earning ${usd(p.income)} before the raise`,
+    `household: ${p.ages.length === 1 ? "one adult" : p.ages.length + " people"}, ${p.ages.length === 1 ? "age" : "ages"} ${p.ages.join(" and ")}, in ${p.state}, earning ${usd(p.income)} before the raise, a household chosen by the author of this file`,
     `note: A raise of ${usd(p.gain)} a year leaves ${usd(p.kept)} in cash after ${moved.length ? moved.join(", ") : "no line moved"}. Cash kept goes from ${usd(p.cashBefore)} to ${usd(p.cashAfter)}. Shown apart and not counted, ${healthMoved.length ? healthMoved.join(", ") : "no health line moved"}. The model applies the rules to this one household and says nothing about what it filed for.`,
   ].join("\n");
 }

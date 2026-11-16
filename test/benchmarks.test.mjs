@@ -48,3 +48,13 @@ test("a value in the chain file wins over the benchmark", () => {
 test("an unknown benchmark name is refused with the list", () => {
   assert.throws(() => applyBenchmarks(parseChain(withBenchmark.replace("snap-dollars-per-new-household-per-year", "nope")), benchmarks), /no benchmark named "nope"/);
 });
+
+test("each step benchmark names a real step, is a share, and no step has two defaults", () => {
+  const steps = benchmarks.filter((e) => e.step);
+  assert.ok(steps.length >= 3);
+  for (const e of steps) {
+    assert.ok(["reach", "uptake", "staying"].includes(e.step), `${e.id} step`);
+    assert.equal(e.unit, "share");
+  }
+  assert.equal(new Set(steps.map((e) => e.step)).size, steps.length);
+});

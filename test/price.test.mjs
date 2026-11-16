@@ -50,7 +50,7 @@ test("the block names the household, the model version, the date, and what moved
   assert.ok(text.includes("likely: 84.2%"));
   assert.ok(text.includes("evidence: modeled"));
   assert.ok(text.includes("version 1.0.0, 2025 rules, priced on 2026-09-25"));
-  assert.ok(text.includes("household: one adult, age 24, in PA, earning $27,338 before the raise"));
+  assert.ok(text.includes("household: one adult, age 24, in PA, earning $27,338 before the raise, a household chosen by the author of this file"));
   assert.ok(text.includes("SNAP $300 to $0"));
   assert.ok(!text.includes("TANF"));
   assert.ok(text.includes("Shown apart and not counted, ACA premium subsidy $4,000 to $3,000"));
@@ -58,7 +58,7 @@ test("the block names the household, the model version, the date, and what moved
 
 test("the block the price step writes is a block the reader accepts", () => {
   const file = `
-product: Example
+program: Example
 built for: people
 [income raised] Earnings added
 per: measured group

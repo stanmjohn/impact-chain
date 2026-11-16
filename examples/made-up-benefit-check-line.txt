@@ -1,0 +1,49 @@
+# PLACEHOLDER. A made-up program in tracking mode. Every program figure below is invented.
+# The counted lines stand in for a program's own records over six months.
+# The benchmarks it is held against are real and sourced in benchmarks/benefits.json.
+
+program: Benefit Check Line, a phone and text line that helps older adults apply for SNAP (made up)
+built for: adults 60 and over in one county who are on Medicaid and not on SNAP
+place: One US county
+years: The first six months of the program
+outcome: SNAP benefits
+dollars: Current dollars
+made up: yes
+replace with: A real file would use the program's own mailing list, call and text logs, and case records for the counted steps, and a group mailed six months later for the effect.
+counted start: 8,000
+counted period: January to June 2026
+
+[reach] Called or texted back after the letter
+counted: 1,120
+source: The program's call and text log (made up)
+
+[uptake] Started an application with a helper
+counted: 610
+source: The program's case records (made up)
+
+[staying] Sent in a finished application
+counted: 470
+source: The program's case records (made up)
+
+[effect] Approved for SNAP who would not have enrolled anyway, among those who sent in an application
+measured over: stayed
+compared with: nothing yet. The program would mail a second group six months later and compare enrollment across the two.
+low: 30%
+likely: 45%
+high: 60%
+evidence: assumed
+source: The program's guess (made up)
+
+[income raised] SNAP benefits per newly enrolled household
+benchmark: snap-dollars-per-new-household-per-year
+window: over the first twelve months on SNAP
+measured at: benefit amounts in the benchmark study, state records
+repeats: recurring monthly, until the household has to recertify
+
+[cost] Letters, phone helpers, and texts, per person on the list
+per: everyone
+low: 6
+likely: 8
+high: 11
+evidence: assumed
+source: The program's draft budget (made up)

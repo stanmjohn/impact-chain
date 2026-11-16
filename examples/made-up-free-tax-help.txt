@@ -1,0 +1,34 @@
+# PLACEHOLDER. A made-up program in tracking mode. Every program figure below is invented.
+# Its counts run from the start to a filed return, and nobody has measured what it changed.
+# So the chain stops early, and the page says which link an evaluation has to buy.
+
+program: Free Tax Help Days, volunteer tax filing at public libraries (made up)
+built for: households in one city on a list of likely eligible filers who paid for tax preparation the year before
+place: One US city
+years: One filing season
+dollars: Current dollars
+made up: yes
+replace with: A real file would use the program's own invitation list, sign-in sheets, and filing records, and a comparison group to measure what the help changed.
+counted start: 5,000
+counted period: February to April 2026
+
+[reach] Booked a time or walked in
+counted: 1,450
+source: The program's booking system and sign-in sheets (made up)
+
+[uptake] Started a return with a volunteer
+counted: 1,010
+source: The program's filing records (made up)
+
+[staying] Filed a return that was accepted
+counted: 540
+source: The program's filing records (made up)
+note: Nobody has measured how many of these households would have filed for free some other way, so the file leaves the effect and the household gain out.
+
+[cost] Volunteer training, space, and outreach, per household on the list
+per: everyone
+low: 2
+likely: 3
+high: 5
+evidence: assumed
+source: The program's draft budget (made up)

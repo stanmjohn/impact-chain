@@ -81,12 +81,32 @@ async function runPrice(path) {
   console.log(`Wrote a [kept share] block into ${path}. The household keeps ${Math.round(priced.share * 100)} percent of the raise.`);
 }
 
+/** The arguments that are not flags or flag values. */
+export function files(list) {
+  const valued = new Set(["--out", "--draws", "--seed"]);
+  const out = [];
+  for (let i = 0; i < list.length; i++) {
+    if (valued.has(list[i])) i++;
+    else if (!list[i].startsWith("--")) out.push(list[i]);
+  }
+  return out;
+}
+
+export const ONE_FILE = "This tool reads one chain file at a time. It never compares two programs, because two programs rarely count a step the same way.";
+
 async function main() {
   if (args.length === 0 || args[0] === "--help" || args[0] === "-h") return usage(args.length ? 0 : 1);
   if (args[0] === "benchmarks") return console.log(benchmarksPage(loadBenchmarks()));
-  if (args[0] === "price") return args[1] ? runPrice(args[1]) : usage(1);
+  const named = files(args[0] === "price" ? args.slice(1) : args);
+  if (named.length > 1) {
+    console.error(ONE_FILE);
+    process.exitCode = 1;
+    return;
+  }
+  if (args[0] === "price") return named[0] ? runPrice(named[0]) : usage(1);
 
-  const path = args[0];
+  const path = named[0];
+  if (!path) return usage(1);
   let text;
   try {
     text = readFileSync(path, "utf8");
