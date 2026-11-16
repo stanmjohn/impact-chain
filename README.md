@@ -1,5 +1,7 @@
 # Impact Chain
 
+[![test](https://github.com/stanmjohn/impact-chain/workflows/test/badge.svg)](https://github.com/stanmjohn/impact-chain/blob/main/.github/workflows/test.yml)
+
 Of the people a program was built for, how many does it reach, where do they leave, which step falls short, and what does the program put in a household's hands?
 
 ## Who it is for
